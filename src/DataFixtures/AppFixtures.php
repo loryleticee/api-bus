@@ -42,12 +42,12 @@ class AppFixtures extends Fixture
         $user->setPassword($hashPwd);
         $manager->persist($user);
 
-        $driver = (new Driver())->setEmail("driver@driver.fr")->setUsername("driver@driver.fr")->setRoles(["ROLE_MEMBER"])->setDrivingLicence("32874267894");
+        $driver = (new Driver())->setEmail("driver@driver.fr")->setUsername("driver@driver.fr")->setRoles(["ROLE_MEMBER", "ROLE_DRIVER"])->setDrivingLicence("32874267894");
         $hashPwd = $this->encoder->hashPassword($driver , "driver");
         $driver->setPassword($hashPwd);
         $manager->persist($driver);
 
-        $driver_1 = (new Driver())->setEmail("uber@uber.fr")->setUsername("uber@uber.fr")->setRoles(["ROLE_MEMBER"])->setDrivingLicence("2R072423");
+        $driver_1 = (new Driver())->setEmail("uber@uber.fr")->setUsername("uber@uber.fr")->setRoles(["ROLE_MEMBER", "ROLE_DRIVER"])->setDrivingLicence("2R072423");
         $hashPwd = $this->encoder->hashPassword($driver_1 , "uber");
         $driver_1->setPassword($hashPwd);
         $manager->persist($driver_1);
