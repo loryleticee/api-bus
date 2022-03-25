@@ -33,6 +33,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(["read_bus", "write_bus"])]
     protected $username;
 
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    private $firstname;
+
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    private $lastname;
+
+    #[ORM\Column(type: 'string', length: 1, nullable: true)]
+    private $sexe;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -40,12 +49,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getEmail(): ?string
     {
-        return $this->email;
+        return strtolower($this->email);
     }
 
     public function setEmail(string $email): self
     {
-        $this->email = $email;
+        $this->email = strtolower($email);
 
         return $this;
     }
@@ -111,6 +120,42 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(?string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(?string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getSexe(): ?string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(?string $sexe): self
+    {
+        $this->sexe = $sexe;
 
         return $this;
     }
