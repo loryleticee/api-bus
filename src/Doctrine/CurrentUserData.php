@@ -25,21 +25,21 @@ class CurrentUserData implements QueryCollectionExtensionInterface, QueryItemExt
 
     public function applyToCollection(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $operationName = null)
     {
-        if ($resourceClass == Bus::class) {   
-            $aliasTable = $queryBuilder->getRootAliases()[0];
-            $queryBuilder->andWhere("$aliasTable.driver = :driver")->setParameter("driver", $this->security->getUser()->getId());
-        }
+        // if ($resourceClass == Bus::class) {   
+        //     $aliasTable = $queryBuilder->getRootAliases()[0];
+        //     $queryBuilder->andWhere("$aliasTable.driver = :driver")->setParameter("driver", $this->security->getUser()->getId());
+        // }
     }
 
     public function applyToItem(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, array $identifiers, string $operationName = null, array $context = [])
     {
-        if (in_array($resourceClass, self::FILTERED_ENTITY) ) {   
-            $this->andWhere($queryBuilder);
-        }
+        // if (in_array($resourceClass, self::FILTERED_ENTITY) ) {   
+        //     $this->andWhere($queryBuilder);
+        // }
     }
 
-    private function andWhere($queryBuilder) {
-            $aliasTable = $queryBuilder->getRootAliases()[0];
-            $queryBuilder->andWhere("$aliasTable.driver = :driver")->setParameter("driver", $this->security->getUser()->getId());
-    }
+    // private function andWhere($queryBuilder) {
+    //         $aliasTable = $queryBuilder->getRootAliases()[0];
+    //         $queryBuilder->andWhere("$aliasTable.driver = :driver")->setParameter("driver", $this->security->getUser()->getId());
+    // }
 }
