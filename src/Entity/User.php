@@ -33,12 +33,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(["read_bus", "write_bus"])]
     protected $username;
 
+    #[Groups(["read_bus", "write_bus"])]
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
     private $firstname;
 
+    #[Groups(["read_bus", "write_bus"])]
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
     private $lastname;
 
+    #[Groups(["read_bus", "write_bus"])]
     #[ORM\Column(type: 'string', length: 1, nullable: true)]
     private $sexe;
 
