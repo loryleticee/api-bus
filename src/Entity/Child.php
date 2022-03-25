@@ -12,7 +12,7 @@ class Child extends User
 {
     #[ORM\Column(type: 'integer')]
     private $rates;
-
+    #[Groups(["read_bus", "write_bus"])]
     #[ORM\ManyToOne(targetEntity: Parents::class, inversedBy: 'childrens')]
     private $parent;
 

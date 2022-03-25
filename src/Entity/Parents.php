@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource]
 class Parents extends User
 {
+    #[Groups(["read_bus", "write_bus"])]
     #[ORM\Column(type: 'string', length: 255)]
     private $phone;
 

@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource]
 class Driver extends User
 {
+    #[Groups(["read_bus", "write_bus"])]
     #[ORM\Column(type: 'string', length: 50)]
     private $driving_licence;
 
